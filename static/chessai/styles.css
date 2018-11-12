@@ -1,0 +1,245 @@
+body {
+	font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+	background-color: #222;
+}
+
+#mainNav {
+	border-bottom: 1px solid rgba(33, 37, 41, 0.1);
+	background-color: #fff;
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+  }
+  
+#mainNav .navbar-brand {
+	font-weight: 700;
+	/* text-transform: uppercase; */
+	color: #2196f4;
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+  }
+  
+#mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
+	color: #2196f4;
+  }
+  
+#mainNav .navbar-nav > li.nav-item > a.nav-link,
+#mainNav .navbar-nav > li.nav-item > a.nav-link:focus {
+	font-size: .9rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #212529;
+}
+  
+#mainNav .navbar-nav > li.nav-item > a.nav-link:hover,
+#mainNav .navbar-nav > li.nav-item > a.nav-link:focus:hover {
+	color: #2196f4;
+}
+  
+#mainNav .navbar-nav > li.nav-item > a.nav-link.active,
+#mainNav .navbar-nav > li.nav-item > a.nav-link:focus.active {
+	color: #2196f4 !important;
+	background-color: transparent;
+}
+  
+#mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover,
+#mainNav .navbar-nav > li.nav-item > a.nav-link:focus.active:hover {
+	background-color: transparent;
+}
+  
+@media (min-width: 992px) {
+	#mainNav {
+	  border-color: transparent;
+	  background-color: transparent;
+	}
+	#mainNav .navbar-brand {
+	  color: rgba(255, 255, 255, 0.7);
+	}
+	#mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
+	  color: #fff;
+	}
+	#mainNav .navbar-nav > li.nav-item > a.nav-link {
+	  padding: 0.5rem 1rem;
+	}
+	#mainNav .navbar-nav > li.nav-item > a.nav-link,
+	#mainNav .navbar-nav > li.nav-item > a.nav-link:focus {
+	  color: rgba(255, 255, 255, 0.7);
+	}
+	#mainNav .navbar-nav > li.nav-item > a.nav-link:hover,
+	#mainNav .navbar-nav > li.nav-item > a.nav-link:focus:hover {
+	  color: #fff;
+	}
+	#mainNav.navbar-shrink {
+	  border-bottom: 1px solid rgba(33, 37, 41, 0.1);
+	  background-color: #fff;
+	}
+	#mainNav.navbar-shrink .navbar-brand {
+	  color: #2196f4;
+	}
+	#mainNav.navbar-shrink .navbar-brand:focus, #mainNav.navbar-shrink .navbar-brand:hover {
+	  color: #2196f4;
+	}
+	#mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link,
+	#mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus {
+	  color: #212529;
+	}
+	#mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:hover,
+	#mainNav.navbar-shrink .navbar-nav > li.nav-item > a.nav-link:focus:hover {
+	  color: #2196f4;
+	}
+  }
+
+.blue-letter{
+	color: #2196f4;
+}
+
+.text-center{
+	text-align: center;
+}
+
+hr {
+	max-width: 50px;
+	border-width: 2px;
+	border-color: #2196f4;
+	border-style: solid;
+}
+
+#Board {
+	top: 80px;
+	position: relative;
+	width: 100%;
+	text-align: center;
+	left: 50%;
+	transform: translate(-50%);
+	width: 480px;
+	height: 480px;
+	border-style: solid;
+	border-width: 2px;
+}
+
+#EngineOutput {
+	top: 80px;
+	position: relative;
+	width: 100%;
+	text-align: center;
+}
+
+#EngineOutput button{
+	position: relative;
+	height: 40px;
+	width: 238px;
+	font-weight: 700;
+	text-transform: uppercase;
+	border: none;
+	border-radius: 5px;
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+	background-color: #2196f4;
+	border-color: #2196f4;
+	margin: 10px 2px 0px 2px;
+}
+
+#thinking-btn{
+	width: 480px;
+}
+
+#GameStatus{
+	margin-top: 10px;
+}
+
+@media only screen and (max-width: 600px){
+	#EngineOutput button{
+		width: 480px;
+	}
+}
+
+button:hover, button:focus {
+	-webkit-box-shadow: 0 0 0 0.1rem rgba(33, 150, 255, 0.5) !important;
+	box-shadow: 0 0 0 0.1rem rgba(33, 150, 255, 0.5) !important;
+}
+
+button:disabled {
+	background-color: #888 !important;
+	color: #000;
+}
+
+.Square {
+	position: absolute;	
+	width: 60px;
+	height: 60px;
+}
+
+.Dark {
+	background-color:#d18b47;
+}
+
+.Light {
+	background-color:#ffce9e;
+}
+
+.SqSelected {
+	background-color:#884002;
+}
+
+.rank1 { top: 420px; }
+.rank2 { top: 360px; }
+.rank3 { top: 300px; }
+.rank4 { top: 240px; }
+.rank5 { top: 180px; }
+.rank6 { top: 120px; }
+.rank7 { top: 60px; }
+.rank8 { top: 0px; }
+
+.file1 { left: 0px; }
+.file2 { left: 60px; }
+.file3 { left: 120px; }
+.file4 { left: 180px; }
+.file5 { left: 240px; }
+.file6 { left: 300px; }
+.file7 { left: 360px; }
+.file8 { left: 420px; }
+
+.Piece {
+	position: absolute;
+}
+
+.text-faded {
+	color: rgba(255, 255, 255, 0.7);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
