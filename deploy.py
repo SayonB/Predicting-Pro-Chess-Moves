@@ -36,10 +36,12 @@ def process():
 class Engine():
     def __init__(self, move_recieved, position_recieved, computer_color):
         ''' Chess engine.
-        Recieves move recieved in uci form (i.e. a1b1)
-        and position recieved in FEN notation
+        Recieves
+        move recieved in uci form (i.e. a1b1)
+        position recieved in FEN notation
+        computer colour as 'w' or 'b'
 
-        Returns a dict with
+        Returns a dict
         ['move from'] = int between 0 and 63
         ['move to'] = int between 0 and 63
         ['bits'] = position in binary form (explained in build_binary_move)
@@ -145,7 +147,7 @@ class Engine():
 
         return result
 
-    def negamax(self, node, depth, player, alpha, beta):
+    def minimax(self, node, depth, player, alpha, beta):
         if player == 'w':
             player = 1
         elif player == 'b':
@@ -160,7 +162,7 @@ class Engine():
         best_advantage = -1*player*infinity
         for child, current_value in node.children:
             node.board.push(child)
-            result = self.negamax(Node(node.board), depth-1,
+            result = self.minimax(Node(node.board), depth-1,
                                   -1*player, alpha, beta)
 
             opposition_value = result[0]
@@ -195,7 +197,7 @@ class Engine():
 
         if (self.last_turn != self.side or
                 self.first_move is True or self.move_recieved == 'None'):
-            result = self.negamax(Node(board=self.board),
+            result = self.minimax(Node(board=self.board),
                                   depth=sdepth, player=self.side,
                                   alpha=-1*infinity, beta=infinity)
             print('result:', result)
