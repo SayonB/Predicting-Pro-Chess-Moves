@@ -303,7 +303,7 @@ class Node():
 
     def get_best_moves(self, from_sqs_list, to_sqs_list):
         '''Matches the probabilities found in predict_moves and minimizes
-        the distance between the probilities and a legal move. Returns an
+        the distance between the probabilities and a legal move. Returns an
         a list of legal moves, ordered by score (found by combining prediction
         score and material score).'''
         legal_moves = [str(legal) for legal in list(self.board.legal_moves)]
@@ -333,7 +333,10 @@ class Node():
 
 
 def squares_to_numbers(move, mirror=True):
-    'returns a square in the form "A1" to its square index - "0"'
+    '''converts a move in uci form (i.e. a1b1) to its squares
+    returns two ints
+    in the above case 0, 1
+    can be mirrored, which will return 56, 57'''
     first_square = str(move)[0:2].upper()
     second_square = str(move)[2:4].upper()
     first_square_num = getattr(chess, first_square)
