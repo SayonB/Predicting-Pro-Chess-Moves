@@ -108,7 +108,7 @@ class Engine():
         0000 0000 1000 0000 0000 0000 0000 -> Pawn Start 0x80000
         0000 1111 0000 0000 0000 0000 0000 -> Promoted Piece >> 20, 0xF
         0001 0000 0000 0000 0000 0000 0000 -> Castle 0x1000000
-        This function takes movements made and converts them to binary form.
+        This function takes moves made and converts them to binary form.
         '''
         captured_piece_binary = '0000'
         en_passant_binary = '0'
@@ -188,7 +188,9 @@ class Engine():
         return [best_advantage, favourite_child, predicted_child]
 
     def build_output_data(self):
-        'Takes the result from minimax and returns a dict'
+        '''Takes the result from minimax and returns a dict
+        minimax uses depth 1 prior to 15 turns. After 15 turns,
+        search depth increases to 3 to allow for checkmating.'''
         output_data = {}
         if self.turns > 15:
             sdepth = 3
@@ -303,7 +305,7 @@ class Node():
 
     def get_best_moves(self, from_sqs_list, to_sqs_list):
         '''Matches the probabilities found in predict_moves and minimizes
-        the distance between the probabilities and a legal move. Returns an
+        the distance between the probabilities and a legal move. Returns
         a list of legal moves, ordered by score (found by combining prediction
         score and material score).'''
         legal_moves = [str(legal) for legal in list(self.board.legal_moves)]
