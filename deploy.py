@@ -14,18 +14,7 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route('/favicon.ico')
-def fav():
-    return send_from_directory(os.path.join(app.root_path, 'static'),
-                               'favicon.ico')
-
-
-@app.route('/')
-def index():
-    return app.send_static_file('index.html')
-
-
-@app.route('/chessai', methods=['GET', 'OPTIONS'])
+@app.route('/', methods=['GET', 'OPTIONS'])
 def process():
     if request.method == 'GET':
         input_data = dict(request.args)

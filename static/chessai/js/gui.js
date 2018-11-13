@@ -365,7 +365,7 @@ function SendToPy(input, lastboard) {
 	console.log('sending move:', input, 'to Python server')
 	console.log('sending last board recorded: ', lastboard, 'to Python server')
 	$.ajax({
-		url: 'chessai',
+		url: '/',
 		type: 'GET',
 		dataType: 'json',
 		async: true,
