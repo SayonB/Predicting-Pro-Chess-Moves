@@ -7,13 +7,6 @@ body {
 	text-align: center;
 }
 
-hr {
-	max-width: 50px;
-	border-width: 2px;
-	border-color: #2196f4;
-	border-style: solid;
-}
-
 #Board {
 	top: 80px;
 	position: relative;

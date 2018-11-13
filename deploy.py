@@ -249,7 +249,7 @@ class Node():
         self.children.extend(self.best_moves[:n])
 
     def predict_moves(self):
-        '''Uses the saved deep learning models to return a 2 lists of 
+        '''Uses the saved deep learning models to return a 2 lists of
         moved_from probabilities and moved_to probabilities'''
         t1 = time.time()
         nn_input = self.board.position_list_one_hot()
@@ -346,7 +346,7 @@ def squares_to_numbers(move, mirror=True):
 def position_list_one_hot(self):
     '''method added to the python-chess library for faster
     conversion of board to one hot encoding. Resulted in 100%
-    increase in speed by bypassing conversion to fen() first.
+    increase in conversion speed by bypassing conversion to fen() first.
     '''
     builder = []
     builder_append = builder.append
