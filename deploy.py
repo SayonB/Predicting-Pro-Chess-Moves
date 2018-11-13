@@ -14,7 +14,7 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route('/', methods=['GET', 'OPTIONS'])
+@app.route('/', methods=['GET'])
 def process():
     if request.method == 'GET':
         input_data = dict(request.args)
@@ -35,6 +35,16 @@ def process():
 
 class Engine():
     def __init__(self, move_recieved, position_recieved, computer_color):
+        ''' Chess engine.
+        Recieves move recieved in uci form (i.e. a1b1)
+        and position recieved in FEN notation
+
+        Returns a dict with
+        ['move from'] = int between 0 and 63
+        ['move to'] = int between 0 and 63
+        ['bits'] = position in binary form (explained in build_binary_move)
+        ['position'] = position in FEN notation
+        '''
         print('Last user move made: ', move_recieved)
         print('Last position recorded: ', position_recieved)
 
