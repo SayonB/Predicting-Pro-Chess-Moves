@@ -1,15 +1,8 @@
 import numpy as np
+'File is used in Keras Conv.py for testing'
+
 
 def next_pos():
-    # next_pos = ['r', 'n', 'b', 'q', 'k', 'b', 'n', 'r',
-    #             'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p',
-    #             '.', '.', '.', '.', '.', '.', '.', '.',
-    #             '.', '.', '.', '.', '.', '.', '.', '.',
-    #             '.', '.', '.', '.', '.', '.', '.', '.',
-    #             '.', '.', '.', '.', '.', '.', '.', '.',
-    #             'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P',
-    #             'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R']
-
     next_pos = ['r', 'n', 'b', 'q', 'k', 'b', 'n', 'r',
                 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p',
                 '.', '.', '.', '.', '.', '.', '.', '.',
@@ -20,6 +13,7 @@ def next_pos():
                 'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R']
 
     return next_pos
+
 
 def make_clean_board():
     next_position = next_pos()
@@ -52,6 +46,7 @@ def make_clean_board():
         elif input_square == 'K':
             input_board.extend([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1])
     return np.reshape(np.array(input_board), (1, 768))
+
 
 def convert_position_prediction(output_board_one_hot):
     square_one_hot = []
@@ -96,6 +91,7 @@ def convert_position_prediction(output_board_one_hot):
             builder.append(' ')
 
     return (''.join(builder))
+
 
 def move_from(output_one_hot):
     board_position = next_pos()
