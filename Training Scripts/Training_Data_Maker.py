@@ -125,6 +125,9 @@ chess.BaseBoard.position_list = position_list
 def progressBar(value, endvalue, time1, time2, bar_length=20):
     '''progress bar with ETA for convenience.
      Did not affect time taken.'''
+    if value == 0:
+        value += 1
+        endvalue += 1
     percent = float(value) / endvalue
     arrow = '-' * int(round(percent * bar_length) - 1) + '>'
     spaces = ' ' * (bar_length - len(arrow))

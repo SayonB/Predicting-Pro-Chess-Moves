@@ -8,7 +8,7 @@ import numpy as np
 import tensorflow as tf
 from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
-from keras.models import load_model
+from keras.models import model_from_json
 
 app = Flask(__name__)
 CORS(app)
@@ -395,12 +395,20 @@ chess.BaseBoard.position_list_one_hot = position_list_one_hot
 
 global graph
 graph = tf.get_default_graph()
-data_folder = r'static/chessai/model'
-moved_from_file = os.path.join(data_folder, 'moved_from_model.h5')
-moved_to_file = os.path.join(data_folder, 'moved_to_model.h5')
+model_folder = r'static/chessai/model'
+moved_from_file = os.path.join(model_folder, 'moved_from_model.json')
+moved_from_weights = os.path.join(model_folder, 'moved_from_weights.h5')
+moved_to_file = os.path.join(model_folder, 'moved_to_model.json')
+moved_to_weights = os.path.join(model_folder, 'moved_to_weights.h5')
 
-move_from_model = load_model(moved_from_file)
-move_to_model = load_model(moved_to_file)
+with open(moved_from_file, 'r') as moved_from_json:
+    move_from_model = model_from_json(moved_from_json.read())
+
+with open(moved_to_file, 'r') as moved_to_json:
+    move_to_model = model_from_json(moved_to_json.read())
+
+move_from_model.load_weights(moved_from_weights)
+move_to_model.load_weights(moved_to_weights)
 
 
 if __name__ == '__main__':
